@@ -28,7 +28,7 @@ Partial Class Invoice
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(551, 415)
+        ClientSize = New Size(638, 360)
         Name = "Invoice"
         Text = "Invoice"
         ResumeLayout(False)
