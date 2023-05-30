@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "S:\\VS_Projects\\VB\\Foreign_Customers\\Foreign_Customers.vbproj": {}
+    "S:\\VS_Projects\\Foreign_Customers\\Foreign_Customers.vbproj": {}
   },
   "projects": {
-    "S:\\VS_Projects\\VB\\Foreign_Customers\\Foreign_Customers.vbproj": {
+    "S:\\VS_Projects\\Foreign_Customers\\Foreign_Customers.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "S:\\VS_Projects\\VB\\Foreign_Customers\\Foreign_Customers.vbproj",
+        "projectUniqueName": "S:\\VS_Projects\\Foreign_Customers\\Foreign_Customers.vbproj",
         "projectName": "Foreign_Customers",
-        "projectPath": "S:\\VS_Projects\\VB\\Foreign_Customers\\Foreign_Customers.vbproj",
+        "projectPath": "S:\\VS_Projects\\Foreign_Customers\\Foreign_Customers.vbproj",
         "packagesPath": "C:\\Users\\Catal\\.nuget\\packages\\",
-        "outputPath": "S:\\VS_Projects\\VB\\Foreign_Customers\\obj\\",
+        "outputPath": "S:\\VS_Projects\\Foreign_Customers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "S:\\VS_Tools\\NuGetPackages"
+          "S:\\VS_SHARED\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Catal\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +44,12 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

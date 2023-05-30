@@ -25,8 +25,7 @@ Partial Class Main_window
         add_customer = New Button()
         show_customers = New Button()
         edit_customers = New Button()
-        id_txtBox = New TextBox()
-        id_lbl = New Label()
+        Button1 = New Button()
         SuspendLayout()
         ' 
         ' add_customer
@@ -49,47 +48,38 @@ Partial Class Main_window
         ' 
         ' edit_customers
         ' 
-        edit_customers.Location = New Point(266, 12)
+        edit_customers.Location = New Point(236, 12)
         edit_customers.Name = "edit_customers"
         edit_customers.Size = New Size(114, 49)
         edit_customers.TabIndex = 2
         edit_customers.Text = "Edit Customer"
         edit_customers.UseVisualStyleBackColor = True
         ' 
-        ' id_txtBox
+        ' Button1
         ' 
-        id_txtBox.Location = New Point(399, 30)
-        id_txtBox.Name = "id_txtBox"
-        id_txtBox.Size = New Size(45, 23)
-        id_txtBox.TabIndex = 3
+        Button1.Location = New Point(116, 93)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(105, 23)
+        Button1.TabIndex = 5
+        Button1.Text = "Generate Invoice"
+        Button1.UseVisualStyleBackColor = True
         ' 
-        ' id_lbl
-        ' 
-        id_lbl.AutoSize = True
-        id_lbl.Location = New Point(386, 12)
-        id_lbl.Name = "id_lbl"
-        id_lbl.Size = New Size(73, 15)
-        id_lbl.TabIndex = 4
-        id_lbl.Text = "Customer ID"' 
         ' Main_window
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(464, 308)
-        Controls.Add(id_lbl)
-        Controls.Add(id_txtBox)
+        ClientSize = New Size(361, 136)
+        Controls.Add(Button1)
         Controls.Add(edit_customers)
         Controls.Add(show_customers)
         Controls.Add(add_customer)
         Name = "Main_window"
         Text = "Foreign Customers"
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents add_customer As Button
     Friend WithEvents show_customers As Button
     Friend WithEvents edit_customers As Button
-    Friend WithEvents id_txtBox As TextBox
-    Friend WithEvents id_lbl As Label
+    Friend WithEvents Button1 As Button
 End Class

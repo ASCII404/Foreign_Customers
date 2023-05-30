@@ -1,50 +1,49 @@
 ﻿Public Class Foreign_Customer
-    Private id As Integer
-    Private name As String
-    Private age As Integer
-    Private country As String
+    Private _id As Integer
+    Private _name As String
+    Private _age As Integer
+    Private _country As String
 
-    Public Sub New(ByVal Id, ByVal Name, ByVal Age, ByVal Country)
-        Me.name = Name
-        Me.id = Id
-        Me.age = Age
-        Me.country = Country
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal age As Integer, ByVal country As String)
+        _id = id
+        _name = name
+        _age = age
+        _country = country
     End Sub
 
-    Public Property Customer_ID As Integer
+    Public Property Id As Integer
         Get
-            Return Me.id
+            Return _id
         End Get
         Set(value As Integer)
-            Me.id = value
+            _id = value
         End Set
     End Property
 
-    Public Property Customer_Name As String
+    Public Property Name As String
         Get
-            Return Me.name
+            Return _name
         End Get
         Set(value As String)
-            Me.name = value
+            _name = value
         End Set
     End Property
 
-    Public Property Customer_Age As Integer
+    Public Property Age As Integer
         Get
-            Return Me.age
+            Return _age
         End Get
         Set(value As Integer)
-            Me.age = value
+            _age = value
         End Set
     End Property
 
-    Public Property Customer_Country As String
+    Public Property Country As String
         Get
-            Return Me.country
+            Return _country
         End Get
         Set(value As String)
-            Me.country = value
+            _country = value
         End Set
     End Property
-
 End Class
