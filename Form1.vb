@@ -3,6 +3,7 @@ Imports System.Security.Cryptography
 Imports System.Windows.Forms.Design
 Imports System.Data.SqlClient
 Imports System.Text.RegularExpressions
+Imports System.Windows
 
 Public Class Main_window
     Dim foreign As Foreign_Customer
@@ -85,7 +86,8 @@ Public Class Main_window
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        Dim invoice As New Invoice()
+        invoice.show()
     End Sub
 
     Private Sub cmbCountries_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCountries.SelectedIndexChanged

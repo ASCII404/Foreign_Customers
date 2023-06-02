@@ -40,6 +40,7 @@ Partial Class Main_window
         ' 
         ' add_customer
         ' 
+        add_customer.FlatStyle = FlatStyle.Popup
         add_customer.Location = New Point(24, 135)
         add_customer.Name = "add_customer"
         add_customer.Size = New Size(346, 49)
@@ -49,6 +50,7 @@ Partial Class Main_window
         ' 
         ' show_customers
         ' 
+        show_customers.FlatStyle = FlatStyle.Popup
         show_customers.Location = New Point(85, 190)
         show_customers.Name = "show_customers"
         show_customers.Size = New Size(114, 49)
@@ -58,6 +60,7 @@ Partial Class Main_window
         ' 
         ' edit_customers
         ' 
+        edit_customers.FlatStyle = FlatStyle.Popup
         edit_customers.Location = New Point(205, 190)
         edit_customers.Name = "edit_customers"
         edit_customers.Size = New Size(114, 49)
@@ -67,6 +70,7 @@ Partial Class Main_window
         ' 
         ' Button1
         ' 
+        Button1.FlatStyle = FlatStyle.Popup
         Button1.Location = New Point(84, 245)
         Button1.Name = "Button1"
         Button1.Size = New Size(235, 58)
@@ -112,6 +116,7 @@ Partial Class Main_window
         ' 
         ' txtBoxName
         ' 
+        txtBoxName.BackColor = SystemColors.InactiveBorder
         txtBoxName.Location = New Point(24, 43)
         txtBoxName.Name = "txtBoxName"
         txtBoxName.Size = New Size(128, 23)
@@ -175,7 +180,9 @@ Partial Class Main_window
         Controls.Add(edit_customers)
         Controls.Add(show_customers)
         Controls.Add(add_customer)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
         Name = "Main_window"
         Text = "Foreign Customers"
         ResumeLayout(False)
