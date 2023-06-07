@@ -8,16 +8,25 @@ Imports System.Windows
 Public Class Main_window
     Dim foreign As Foreign_Customer
     Dim customers As New List(Of Foreign_Customer)
+    Private Function AllFieldsValid() As Boolean
+        If cmbCountries.SelectedIndex = -1 Then
+            Return False
+        End If
+        If Not Regex.IsMatch(txtBoxName.Text, "^[A-Za-z ]*$") Then
+            Return False
+        End If
+        If Not txtBoxAge.Text Like "##" Then
+            Return False
+        End If
+
+        Return True
+    End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If cmbCountries.SelectedIndex = -1 Then
-            lblErrorCountry.Visible = True
-            add_customer.Enabled = False
-        Else
-            add_customer.Enabled = True
-            lblErrorCountry.Visible = False
-        End If
+        add_customer.Enabled = AllFieldsValid()
+        lblErrorCountry.Visible = (cmbCountries.SelectedIndex = -1)
     End Sub
+
 
     Private Sub add_customer_Click(sender As Object, e As EventArgs) Handles add_customer.Click
         Dim age As Integer
@@ -68,6 +77,7 @@ Public Class Main_window
 
 
 
+    'Modify this so it takes database logic.
     Private Sub show_customers_Click(sender As Object, e As EventArgs) Handles show_customers.Click
         Dim customerInfo As String = ""
 
@@ -78,46 +88,45 @@ Public Class Main_window
                             "Customer Country: " & customer.Country & vbCrLf & vbCrLf
         Next
 
-        MsgBox(customerInfo)
+        If customerInfo = "" Then
+            MsgBox("No customer in the database!")
+        Else
+            MsgBox(customerInfo)
+        End If
+
     End Sub
 
     Private Sub edit_customers_Click(sender As Object, e As EventArgs) Handles edit_customers.Click
-        Dim newID As Integer = Integer.Parse(InputBox("Input new ID for the customer", "Customer attribute", "0"))
+        Dim input As String = InputBox("Input new ID for the customer", "Customer attribute", "0")
+        Dim newID As Integer
+
+        If Integer.TryParse(input, newID) Then
+            ' Parse was successful. newID now contains the parsed integer.
+        Else
+            ' Parse failed. newID will be 0 by default.
+            ' Handle the error situation here, possibly by showing an error message or re-prompting for input.
+        End If
+
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_generate.Click
         Dim invoice As New Invoice()
         invoice.show()
     End Sub
 
     Private Sub cmbCountries_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCountries.SelectedIndexChanged
-        If cmbCountries.SelectedIndex = -1 Then
-            lblErrorCountry.Visible = True
-            add_customer.Enabled = False
-        Else
-            add_customer.Enabled = True
-            lblErrorCountry.Visible = False
-        End If
+        lblErrorCountry.Visible = (cmbCountries.SelectedIndex = -1)
+        add_customer.Enabled = AllFieldsValid()
     End Sub
 
     Private Sub txtBoxName_TextChanged(sender As Object, e As EventArgs) Handles txtBoxName.TextChanged
-        'Checks if the name entered has any lower case/upper case characters or spaces, if not then it won't allow to add a new customer
-        If Not Regex.IsMatch(txtBoxName.Text, "^[A-Za-z ]*$") Then
-            add_customer.Enabled = False
-            lblErrorName.Visible = True
-        Else
-            add_customer.Enabled = True
-            lblErrorName.Visible = False
-        End If
+        lblErrorName.Visible = Not Regex.IsMatch(txtBoxName.Text, "^[A-Za-z ]*$")
+        add_customer.Enabled = AllFieldsValid()
     End Sub
 
     Private Sub txtBoxAge_TextChanged(sender As Object, e As EventArgs) Handles txtBoxAge.TextChanged
-        'Checks if the age entered is made only by digits 2 as under 18 are not allowed(or 10 which would be 9)
-        'what would a 9 years old do with an invoice anyway?
-        If Not txtBoxAge.Text Like "##" Then
-            add_customer.Enabled = False
-        Else
-            add_customer.Enabled = True
-        End If
+        add_customer.Enabled = AllFieldsValid()
+        lblErrorAge.Visible = Not txtBoxAge.Text Like "##"
     End Sub
+
 End Class

@@ -26,7 +26,7 @@ Partial Class Main_window
         add_customer = New Button()
         show_customers = New Button()
         edit_customers = New Button()
-        Button1 = New Button()
+        btn_generate = New Button()
         lblName = New Label()
         lblAge = New Label()
         lblCountry = New Label()
@@ -68,15 +68,15 @@ Partial Class Main_window
         edit_customers.Text = "Edit Customer"
         edit_customers.UseVisualStyleBackColor = True
         ' 
-        ' Button1
+        ' btn_generate
         ' 
-        Button1.FlatStyle = FlatStyle.Popup
-        Button1.Location = New Point(84, 245)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(235, 58)
-        Button1.TabIndex = 5
-        Button1.Text = "Generate Invoice"
-        Button1.UseVisualStyleBackColor = True
+        btn_generate.FlatStyle = FlatStyle.Popup
+        btn_generate.Location = New Point(84, 245)
+        btn_generate.Name = "btn_generate"
+        btn_generate.Size = New Size(235, 58)
+        btn_generate.TabIndex = 5
+        btn_generate.Text = "Generate Invoice"
+        btn_generate.UseVisualStyleBackColor = True
         ' 
         ' lblName
         ' 
@@ -144,11 +144,11 @@ Partial Class Main_window
         ' 
         lblErrorAge.AutoSize = True
         lblErrorAge.ForeColor = Color.Red
-        lblErrorAge.Location = New Point(178, 69)
+        lblErrorAge.Location = New Point(169, 69)
         lblErrorAge.Name = "lblErrorAge"
-        lblErrorAge.Size = New Size(66, 15)
+        lblErrorAge.Size = New Size(84, 15)
         lblErrorAge.TabIndex = 13
-        lblErrorAge.Text = "Digits only!"
+        lblErrorAge.Text = "Invalid format!"
         lblErrorAge.Visible = False
         ' 
         ' lblErrorCountry
@@ -176,7 +176,7 @@ Partial Class Main_window
         Controls.Add(lblCountry)
         Controls.Add(lblAge)
         Controls.Add(lblName)
-        Controls.Add(Button1)
+        Controls.Add(btn_generate)
         Controls.Add(edit_customers)
         Controls.Add(show_customers)
         Controls.Add(add_customer)
@@ -192,7 +192,7 @@ Partial Class Main_window
     Friend WithEvents add_customer As Button
     Friend WithEvents show_customers As Button
     Friend WithEvents edit_customers As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_generate As Button
     Friend WithEvents lblName As Label
     Friend WithEvents lblAge As Label
     Friend WithEvents lblCountry As Label

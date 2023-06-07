@@ -22,6 +22,7 @@ Partial Class Invoice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Invoice))
         btnGenerate = New Button()
         lblAmount = New Label()
         lblVAT = New Label()
@@ -41,6 +42,7 @@ Partial Class Invoice
         ' 
         ' btnGenerate
         ' 
+        btnGenerate.FlatStyle = FlatStyle.Popup
         btnGenerate.Location = New Point(12, 111)
         btnGenerate.Name = "btnGenerate"
         btnGenerate.Size = New Size(559, 45)
@@ -95,7 +97,6 @@ Partial Class Invoice
         ' 
         ' txtbAmount
         ' 
-        txtbAmount.BorderStyle = BorderStyle.FixedSingle
         txtbAmount.Location = New Point(12, 49)
         txtbAmount.Name = "txtbAmount"
         txtbAmount.Size = New Size(92, 23)
@@ -105,6 +106,7 @@ Partial Class Invoice
         ' 
         cmbBoxVAT.DropDownStyle = ComboBoxStyle.DropDownList
         cmbBoxVAT.FormattingEnabled = True
+        cmbBoxVAT.Items.AddRange(New Object() {"19%", "20%", "22% "})
         cmbBoxVAT.Location = New Point(135, 49)
         cmbBoxVAT.Name = "cmbBoxVAT"
         cmbBoxVAT.Size = New Size(56, 23)
@@ -112,16 +114,18 @@ Partial Class Invoice
         ' 
         ' dtpIssue
         ' 
-        dtpIssue.Location = New Point(211, 49)
+        dtpIssue.Format = DateTimePickerFormat.Short
+        dtpIssue.Location = New Point(236, 49)
         dtpIssue.Name = "dtpIssue"
-        dtpIssue.Size = New Size(133, 23)
+        dtpIssue.Size = New Size(95, 23)
         dtpIssue.TabIndex = 8
         ' 
         ' dtpDeadline
         ' 
-        dtpDeadline.Location = New Point(363, 49)
+        dtpDeadline.Format = DateTimePickerFormat.Short
+        dtpDeadline.Location = New Point(383, 49)
         dtpDeadline.Name = "dtpDeadline"
-        dtpDeadline.Size = New Size(133, 23)
+        dtpDeadline.Size = New Size(96, 23)
         dtpDeadline.TabIndex = 9
         ' 
         ' cmbBoxCountry
@@ -200,6 +204,7 @@ Partial Class Invoice
         Controls.Add(lblAmount)
         Controls.Add(btnGenerate)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "Invoice"
         Text = "Invoice"
